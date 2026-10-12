@@ -15,6 +15,7 @@ public class playerController : MonoBehaviour
     private int count;
     private float movementX;
     private float movementY;
+    public GameObject enemy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,7 +40,7 @@ public class playerController : MonoBehaviour
         if (count >= 6)
         {
             FindFirstObjectByType<Door>().Open();
-            Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+            enemy.SetActive(false);
         }
     }
 
@@ -51,10 +52,10 @@ public class playerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit" + collision.gameObject.name + "tagged" + collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Enemy"))
         {
             gameObject.SetActive(false);
+            enemy.SetActive(false);
             victoryText.SetActive(true);
             victoryText.GetComponent<TextMeshProUGUI>().text = "You Lose!";
         }
