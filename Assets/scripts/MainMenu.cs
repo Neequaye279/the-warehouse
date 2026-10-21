@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
     public GameObject controlsPanel;
     public string gameSceneName = "warehouse";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Play()
+    public void Play()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(gameSceneName);
