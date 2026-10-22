@@ -26,7 +26,8 @@ public class Door : MonoBehaviour
         if (obstacle != null) obstacle.enabled = false;
         if (cameraFollow != null) cameraFollow.enabled = false;
         if (guard != null) guard.isStopped = true;
-        if (winText != null) winText.SetActive(true);
+        EndScreen es = FindFirstObjectByType<EndScreen>();
+        if (es != null) es.Show(true);
     }
 
     void Update()

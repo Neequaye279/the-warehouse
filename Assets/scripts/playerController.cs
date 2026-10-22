@@ -36,7 +36,7 @@ public class playerController : MonoBehaviour
 
     void setCountText()
     {
-        countText.text = "Keys: " + count;
+        countText.text = "KEYS " + count + " / 6";
         if (count >= 6)
         {
             FindFirstObjectByType<Door>().Open();
@@ -56,8 +56,8 @@ public class playerController : MonoBehaviour
         {
             gameObject.SetActive(false);
             enemy.SetActive(false);
-            victoryText.SetActive(true);
-            victoryText.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+            FindFirstObjectByType<EndScreen>().Show(false);
+            gameObject.SetActive(false);
         }
     }
 
