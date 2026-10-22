@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
     public float speed = 2f;
     public Transform cam;
     public Transform camPoint;
+    public Transform lookTarget;
     public CameraContoller cameraFollow;
     public GameObject winText;
     public NavMeshAgent guard;
@@ -37,7 +38,7 @@ public class Door : MonoBehaviour
         if (cam != null && camPoint != null)
         {
             cam.position = Vector3.Lerp(cam.position, camPoint.position, 2f * Time.deltaTime);
-            Quaternion look = Quaternion.LookRotation(transform.position - cam.position);
+            Quaternion look = Quaternion.LookRotation(lookTarget.position - cam.position);
             cam.rotation = Quaternion.Slerp(cam.rotation, look, 3f * Time.deltaTime);
         }
     }
